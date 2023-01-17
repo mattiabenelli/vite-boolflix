@@ -10,7 +10,6 @@ export default {
     }
   },
   methods:{
-   
   }
 }
 
@@ -19,7 +18,7 @@ export default {
 <template lang="">
   <div class="searchbar">
     <input type="text" placeholder="cerca film" v-model="store.searchText">
-    <button type="submit">Cerca</button>
+    <button @click="$emit('search')" type="submit">Cerca</button>
   </div>
 </template>
 

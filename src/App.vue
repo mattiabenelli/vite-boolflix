@@ -19,7 +19,7 @@ export default{
 </script>
 
 <template>
-  <AppSearch />  
+  <FilmList />
 </template>
 
 <style lang="scss">
