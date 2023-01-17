@@ -1,11 +1,13 @@
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import AppSearch from './components/AppSearch.vue';
+import FilmList from './components/FilmList.vue';
 
 import { store } from './store.js';
 
 export default{
   components:{
-    HelloWorld
+    AppSearch,
+    FilmList
   },
   data(){
     return{
@@ -17,7 +19,7 @@ export default{
 </script>
 
 <template>
-  <HelloWorld />  
+  <AppSearch />  
 </template>
 
 <style lang="scss">
