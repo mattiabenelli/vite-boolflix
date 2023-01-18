@@ -6,11 +6,11 @@ export default {
             store
         }
     },
-   computed: {
+   methods: {
         starVote(index){
             let newVote = Math.floor(store.FilmList[index].vote_average / 2)
             return newVote        
-        }
+        },
     },
     
 }
@@ -34,7 +34,7 @@ export default {
             <div>{{ item.name }}</div>
             <div>{{ item.original_name}}</div>
             <img :src="`https://unpkg.com/language-icons/icons/${item.original_language}.svg`">
-            <div>{{ item.vote_average }}</div>
+            <div>{{ starVote(index) }}</div>
         </div>
     </div>
     

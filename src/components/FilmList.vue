@@ -42,4 +42,5 @@ export default {
 </template>
 
 <style lang="scss">
+
 </style>
