@@ -15,12 +15,10 @@ export default {
         } 
     },
     mounted(){
-        this.getFilm();
-        // this.getSeries();
-        // this.getLanguage();
+        this.getFilmSeries();
     },
     methods:{
-        getFilm(){
+        getFilmSeries(){
             let myUrlMovies = store.urlFilm + store.searchText
 
             axios.get(myUrlMovies).then((response) => {
@@ -32,36 +30,34 @@ export default {
                 store.SeriesList = response.data.results
             })
         },
-        // getLanguage(){
-        //     let language = (store.FilmList.original_language).toUpperCase();
-        //     console.log(language)
-        // }
     },
 }
 </script>
 
 <template lang="">
-    <AppSearch @search="getFilm" />
+    <AppSearch @search="getFilmSeries" />
     <div class="card" v-for="(item,index) in store.FilmList" :key="index">
         <div>{{ item.title }}</div>
         <div>{{ item.original_title }}</div>
-        <div>{{ item.original_language }}</div>
+        <img :src="`https://unpkg.com/language-icons/icons/${item.original_language}.svg`">
         <div>{{ item.vote_average }}</div>
-        <img :src=`"https://unpkg.com/language-icons/icons/${{ item.original_language }}.svg"`>
     </div>
     <div class="card series" v-for="(item,index) in store.SeriesList" :key="index">
         <div>{{ item.name }}</div>
         <div>{{ item.original_name}}</div>
-        <div>{{ item.original_language }}</div>
+        <img :src="`https://unpkg.com/language-icons/icons/${item.original_language}.svg`">
         <div>{{ item.vote_average }}</div>
-        <!-- <img src="`https://flagsapi.com/${language}/flat/64.png`"> -->
     </div>
 </template>
 
 <style lang="scss">
     .card{
         display: flex;
+        align-items: center;
         gap: 20px;
+        img{
+            height: 20px;
+        }
     }
     .series{
         color: red;
