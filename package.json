@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.2.2",
+    "language-icons": "^0.3.0",
     "vue": "^3.2.45"
   },
   "devDependencies": {
