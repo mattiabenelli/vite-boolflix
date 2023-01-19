@@ -28,6 +28,13 @@
             else{
                 return `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgAlTMpHUfzVUBVvhBODpjQ0z72IsefK5BPz6_Uc6H5i8bHBX02ipD5xxJGCG9Z4nZju0&usqp=CAU`
             }
+        },
+        lenghtDescription() {
+            if (this.card.overview.length > 270) {
+                this.card.overview = this.card.overview.substring(0, 201) + '...'
+                return this.card.overview
+            }
+            return this.card.overview
         }
 
     },
@@ -39,9 +46,9 @@
         <div class="card">
             <img :src="posterImg(card)" alt="">
             <div class="info">
-                <h1>{{ card.title }}</h1>
-                <div>{{ card.original_title }}</div>
-                <div>{{ card.overview }}</div>
+                <h3>{{ card.title }}</h3>
+                <div class="original-title">{{ card.original_title }}</div>
+                <div>{{ lenghtDescription() }}</div>
                 <div class="characteristic">
                     <div><img class="flag" :src="getFlags()"></div>
                     <div class="star">
@@ -54,15 +61,18 @@
 </template>
 
 <style lang="sass">
+.original-title
+ padding-bottom: 10px
 .info
  height: 100%
- h1
-  padding: 5px 0
+ h3
+  padding: 15px 0
 .star
     font-size:20px
 .card
   text-align: center
-  width: 280px
+  min-width: 200px
+  max-width: 200px
   height: 400px
   border-radius: 15px
   padding: 10px
@@ -104,7 +114,7 @@
     color: white
     opacity: 0
     transition: 0.5s
-    h1
+    h3
       margin: 0px
     p
       letter-spacing: 1px

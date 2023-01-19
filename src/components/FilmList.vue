@@ -21,21 +21,35 @@ export default {
 </script>
 
 <template lang="">
-    <div class="card-container">
-        <FilmCard  v-for="(item,index) in store.FilmList" :key="index" :card="item" />
-    </div>
-    <div class="card-container">
-        <SeriesCard v-for="(item,index) in store.SeriesList" :key="index" :card="item" />
+    <div class="container">
+        <div class="titolo">Ho trovato {{store.FilmList.length}} Film</div>
+        <div class="card-container">
+            <FilmCard  v-for="(item,index) in store.FilmList" :key="index" :card="item" />
+        </div>
+        <div class="titolo">Ho trovato {{store.SeriesList.length}} Serie</div>
+        <div class="card-container">
+            <SeriesCard v-for="(item,index) in store.SeriesList" :key="index" :card="item" />
+        </div>
     </div>
 </template>
 
 <style lang="scss">
     .card-container{
-        margin: 20px auto;
         display: flex;
         align-items: center;
-        flex-wrap: wrap;
-        justify-content: space-between;
         gap: 20px;
+        padding: 20px 0;
+        overflow-x: scroll;
+        overflow-y: clip;
+        height: 380px;
+    }
+    .container{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .titolo{
+        font-size: 40px;
+        color: white;
+        padding-top: 20px;
     }
 </style>
