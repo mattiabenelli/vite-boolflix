@@ -7,4 +7,3 @@ export const store = reactive({
     FilmList: [],
     SeriesList: []
 })
-{/* <img :src="https://www.countryflagicons.com/FLAT/64/${getFlag(details)}.png"> */ }

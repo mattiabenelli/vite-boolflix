@@ -35,6 +35,8 @@ export default {
         <div>{{ card.original_name}}</div>
         <img :src="getFlags()">
         <div>{{ starVote() }}</div>
+        <fa :icon="['fas','star']" />
+        <fa :icon="['far','star']" />
     </div>
 </template>
 
