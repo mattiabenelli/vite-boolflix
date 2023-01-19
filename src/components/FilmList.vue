@@ -1,15 +1,14 @@
 <script>
-import axios from 'axios'
-import AppSearch from '../components/AppSearch.vue';
 import FilmCard from '../components/FilmCard.vue';
+import SeriesCard from '../components/SeriesCard.vue';
 
 import { store } from '../store.js';
 
 
 export default {
     components:{
-        AppSearch,
-        FilmCard
+        FilmCard,
+        SeriesCard
     },
     data(){
         return{
@@ -17,30 +16,26 @@ export default {
         } 
     },
     mounted(){
-        this.getFilmSeries();
-    },
-    methods:{
-        getFilmSeries(){
-            let myUrlMovies = store.urlFilm + store.searchText
-
-            axios.get(myUrlMovies).then((response) => {
-                store.FilmList = response.data.results
-            })
-            let myUrlSeries = store.urlSeries + store.searchText
-
-            axios.get(myUrlSeries).then((response) => {
-                store.SeriesList = response.data.results
-            })
-        },
     },
 }
 </script>
 
 <template lang="">
-    <AppSearch @search="getFilmSeries" />
-    <FilmCard />
+    <div class="card-container">
+        <FilmCard  v-for="(item,index) in store.FilmList" :key="index"/>
+    </div>
+    <div class="card-container">
+        <SeriesCard v-for="(item,index) in store.SeriesList" :key="index"/>
+    </div>
 </template>
 
 <style lang="scss">
-
+    .card-container{
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+    }
 </style>

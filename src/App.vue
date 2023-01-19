@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios'
 import AppSearch from './components/AppSearch.vue';
 import FilmList from './components/FilmList.vue';
 
@@ -13,12 +14,27 @@ export default{
     return{
       store
     }
-  }
+  },
+  methods:{
+        getFilmSeries(){
+            let myUrlMovies = store.urlFilm + store.searchText
+
+            axios.get(myUrlMovies).then((response) => {
+                store.FilmList = response.data.results
+            })
+            let myUrlSeries = store.urlSeries + store.searchText
+
+            axios.get(myUrlSeries).then((response) => {
+                store.SeriesList = response.data.results
+            })
+        },
+    },
 }
 
 </script>
 
 <template>
+  <AppSearch @search="getFilmSeries" />
   <FilmList />
 </template>
 

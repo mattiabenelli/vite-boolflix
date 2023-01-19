@@ -12,25 +12,24 @@ export default {
             return newVote        
         },
     },
-    
 }
 </script>
 
 <template lang="">
-    <div class="card film">
+    <div class="card series">
         <div class="card-img">
-            <img class="poster" :src="`http://image.tmdb.org/t/p/w500/${item.poster_path}`" alt="">
+        <img class="poster" :src="`http://image.tmdb.org/t/p/w500/${item.poster_path}`" alt="">
         </div>
-        <div>{{ item.title }}</div>
-        <div>{{ item.original_title }}</div>
+        <div>{{ item.name }}</div>
+        <div>{{ item.original_name}}</div>
         <img :src="`https://unpkg.com/language-icons/icons/${item.original_language}.svg`">
-        <div>{{  starVote(index) }}</div>
+        <div>{{ starVote(index) }}</div>
     </div>
 </template>
 
 <style lang="scss">
-    .card.film{
-        color: orange;
+    .card.series{
+        color: red;
     }
     
 </style>
