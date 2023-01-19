@@ -4,18 +4,20 @@
     box-sizing: border-box;
 }
 
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
 
+img.flag {
+    height: 50px;
+    width: 60px;
+    position: relative;
+}
 
-.card {
-    width: 20%;
-    text-align: center;
-    margin: 10px 0;
-
-    .poster {
-        height: 100px;
-    }
-
-    img {
-        height: 20px;
-    }
+main {
+    width: 90%;
+    margin: 0 auto;
 }

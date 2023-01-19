@@ -1,13 +1,12 @@
 <script>
-import axios from 'axios'
-import AppSearch from './components/AppSearch.vue';
+import AppHeader from './components/AppHeader.vue';
 import FilmList from './components/FilmList.vue';
 
 import { store } from './store.js';
 
 export default{
   components:{
-    AppSearch,
+    AppHeader,
     FilmList
   },
   data(){
@@ -34,8 +33,10 @@ export default{
 </script>
 
 <template>
-  <AppSearch @search="getFilmSeries" />
-  <FilmList />
+  <AppHeader />
+  <main>
+    <FilmList />
+  </main>
 </template>
 
 <style lang="scss">

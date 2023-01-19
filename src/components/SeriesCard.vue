@@ -21,6 +21,14 @@ export default {
             }
 
             return flags
+        },
+        posterImg(value){
+            if(value.poster_path){
+                return `http://image.tmdb.org/t/p/w342/${value.poster_path}`
+            }
+            else{
+                return `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgAlTMpHUfzVUBVvhBODpjQ0z72IsefK5BPz6_Uc6H5i8bHBX02ipD5xxJGCG9Z4nZju0&usqp=CAU`
+            }
         }
     },
 }
@@ -29,7 +37,7 @@ export default {
 <template lang="">
     <div class="card series">
         <div class="card-img">
-        <img class="poster" :src="`http://image.tmdb.org/t/p/w342/${card.poster_path}`" alt="">
+        <img class="poster" :src="posterImg(card)" alt="">
         </div>
         <div>{{ card.name }}</div>
         <div>{{ card.original_name}}</div>
