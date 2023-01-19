@@ -22,10 +22,10 @@ export default {
 
 <template lang="">
     <div class="card-container">
-        <FilmCard  v-for="(item,index) in store.FilmList" :key="index"/>
+        <FilmCard  v-for="(item,index) in store.FilmList" :key="index" :card="item" />
     </div>
     <div class="card-container">
-        <SeriesCard v-for="(item,index) in store.SeriesList" :key="index"/>
+        <SeriesCard v-for="(item,index) in store.SeriesList" :key="index" :card="item" />
     </div>
 </template>
 
