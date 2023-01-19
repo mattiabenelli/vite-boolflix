@@ -5,8 +5,7 @@
     },
    methods: {
         starVote(){
-            let newVote = Math.floor(this.card.vote_average / 2)
-            return newVote        
+            return Math.floor(this.card.vote_average / 2)       
         },
         getFlags(){
             let flags= `https://www.countryflagicons.com/FLAT/64/${this.card.original_language.toUpperCase()}.png`
@@ -35,7 +34,8 @@
         <div>{{ card.title }}</div>
         <div>{{ card.original_title }}</div>
         <img :src="getFlags()">
-        <div>{{  starVote() }}</div>
+        <fa v-for="n in starVote()" :icon="['fas','star']" />
+        <fa v-for="n in 5 - starVote()" :icon="['far','star']" />
     </div>
 </template>
 

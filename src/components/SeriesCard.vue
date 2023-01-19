@@ -35,8 +35,8 @@ export default {
         <div>{{ card.original_name}}</div>
         <img :src="getFlags()">
         <div>{{ starVote() }}</div>
-        <fa :icon="['fas','star']" />
-        <fa :icon="['far','star']" />
+        <fa v-for="n in starVote()" :icon="['fas','star']" />
+        <fa v-for="n in 5 - starVote()" :icon="['far','star']" />
     </div>
 </template>
 
