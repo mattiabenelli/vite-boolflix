@@ -39,7 +39,7 @@ export default {
         align-items: center;
         gap: 20px;
         padding: 20px 0;
-        overflow-x: scroll;
+        overflow-x: auto;
         overflow-y: clip;
         height: 380px;
     }
